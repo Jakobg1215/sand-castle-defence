@@ -1,0 +1,258 @@
+{
+  "__guid": "ef2265d1-a67c-40fa-9798-aebeee659940",
+  "GameObjects": [
+    {
+      "__guid": "ed60b3ec-a39c-491f-868f-20e65dc2f283",
+      "Name": "Floor",
+      "Scale": "10,10,10",
+      "Tags": "solid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "5c4ca11e-aa64-4069-b2df-41423602e929",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "Off",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "af4dce15-e70f-4854-b214-c4966d09e1bc",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "8f4a219d-26b7-4724-870e-9ef46d17bd68",
+      "Name": "2D Skybox",
+      "Position": "0,0,150",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "__guid": "e3437f79-5cfe-4fe5-aea2-db0e9349bdd0",
+          "SkyMaterial": "materials/skybox/light_test_default.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "243dad1a-9b73-4fec-921e-35d1842ab42a",
+      "Name": "Sun Light",
+      "Position": "0,0,200",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "__guid": "c90cb918-82df-4d49-bc10-895f4ea8296b",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "__guid": "7c5186d6-681a-49e3-9c16-8acf8e06f2d3",
+      "Name": "Management",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Children": [
+        {
+          "__guid": "47f2a81b-89fa-4f3a-8c17-eac6858a7663",
+          "Name": "Difficulty",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "DifficultyManager",
+              "__guid": "64681482-8d31-475f-a729-f25511df5931",
+              "BaseWaveSpawnTime": 5,
+              "CastleDifficultyScale": 1000,
+              "HealthBonusScale": 75,
+              "MaxCastle": 10,
+              "MaxWaveSize": 10,
+              "MinimumWaveSpawnTime": 1,
+              "Networking": {
+                "_type": "component",
+                "component_id": "dfee1b62-f6d0-47bf-8253-260a5dd6ee8e",
+                "go": "bdf6992d-2e77-430d-b88d-8441e9d1e2a6",
+                "component_type": "NetworkManager"
+              },
+              "WaveDifficultyScale": 150,
+              "WaveSpawnTimeDecrease": 0.1,
+              "WaveSpawnTimeDifficultyScale": 250
+            }
+          ]
+        },
+        {
+          "__guid": "20d32a0a-d3d8-4471-8866-3d06f91d2df6",
+          "Name": "Economy",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "EconomyManager",
+              "__guid": "8fae84a2-fc62-4cfb-a5dc-c62c074236f4",
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "64681482-8d31-475f-a729-f25511df5931",
+                "go": "47f2a81b-89fa-4f3a-8c17-eac6858a7663",
+                "component_type": "DifficultyManager"
+              },
+              "Enemies": {
+                "_type": "component",
+                "component_id": "7b41c6c2-9132-4824-9656-43cc546b9a4c",
+                "go": "7a8ef971-9537-4deb-a307-1d91a861b50b",
+                "component_type": "EnemyManager"
+              },
+              "Networking": {
+                "_type": "component",
+                "component_id": "dfee1b62-f6d0-47bf-8253-260a5dd6ee8e",
+                "go": "bdf6992d-2e77-430d-b88d-8441e9d1e2a6",
+                "component_type": "NetworkManager"
+              },
+              "StartingFunds": 100,
+              "Towers": {
+                "_type": "component",
+                "component_id": "1f528b5e-437d-4ed7-9fce-7b2ecb1c6bd9",
+                "go": "fa291c66-b8c6-44cf-8c2e-714d77960f7d",
+                "component_type": "TowerManager"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "7a8ef971-9537-4deb-a307-1d91a861b50b",
+          "Name": "Enemies",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "EnemyManager",
+              "__guid": "7b41c6c2-9132-4824-9656-43cc546b9a4c",
+              "BanditPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/enemies/bandit.prefab"
+              },
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "64681482-8d31-475f-a729-f25511df5931",
+                "go": "47f2a81b-89fa-4f3a-8c17-eac6858a7663",
+                "component_type": "DifficultyManager"
+              },
+              "Towers": {
+                "_type": "component",
+                "component_id": "1f528b5e-437d-4ed7-9fce-7b2ecb1c6bd9",
+                "go": "fa291c66-b8c6-44cf-8c2e-714d77960f7d",
+                "component_type": "TowerManager"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "bdf6992d-2e77-430d-b88d-8441e9d1e2a6",
+          "Name": "Networking",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "NetworkManager",
+              "__guid": "dfee1b62-f6d0-47bf-8253-260a5dd6ee8e",
+              "PlayerPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/player.prefab"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "fa291c66-b8c6-44cf-8c2e-714d77960f7d",
+          "Name": "Towers",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "TowerManager",
+              "__guid": "1f528b5e-437d-4ed7-9fce-7b2ecb1c6bd9",
+              "CastlePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/sandcastle.prefab"
+              },
+              "CastleStorage": {
+                "_type": "gameobject",
+                "go": "b352635e-41e6-4244-9940-6d8ba6e2c057"
+              },
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "64681482-8d31-475f-a729-f25511df5931",
+                "go": "47f2a81b-89fa-4f3a-8c17-eac6858a7663",
+                "component_type": "DifficultyManager"
+              },
+              "Economy": {
+                "_type": "component",
+                "component_id": "8fae84a2-fc62-4cfb-a5dc-c62c074236f4",
+                "go": "20d32a0a-d3d8-4471-8866-3d06f91d2df6",
+                "component_type": "EconomyManager"
+              },
+              "HubPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/hub.prefab"
+              },
+              "WatchTowerPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/watchtower.prefab"
+              }
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "b352635e-41e6-4244-9940-6d8ba6e2c057",
+              "Name": "castles",
+              "Enabled": true,
+              "NetworkMode": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 20,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 20,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "testing",
+  "Description": "The Test Map For All Testing.",
+  "LastSaved": "2024-03-14T18:51:00.9145918-05:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

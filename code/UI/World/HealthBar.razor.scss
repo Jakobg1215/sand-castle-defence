@@ -1,0 +1,20 @@
+HealthBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 20%;
+    background-color: red;
+
+    .heath-bar {
+        height: 100%;
+        width: 100%;
+        background-color: green;
+        border-radius: 20%;
+        margin-right: auto;
+    }
+}

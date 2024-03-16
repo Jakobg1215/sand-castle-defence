@@ -1,0 +1,53 @@
+{
+  "__guid": "943ae335-ed8d-4229-a91c-efc3a4e20537",
+  "GameObjects": [
+    {
+      "__guid": "31f1ac5f-2144-4b77-954a-be1f863c585c",
+      "Name": "Menu",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__guid": "b2f41d6b-249b-41f1-95db-91390c949bd4",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "MainMenu",
+          "__guid": "7c45cb41-5ea9-4ed0-acf6-77392372f789",
+          "GameScene": "scenes/gaming.scene"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "setup",
+  "Description": "The Main Menu That Is Loaded First",
+  "LastSaved": "2024-03-15T20:28:31.9871637-05:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

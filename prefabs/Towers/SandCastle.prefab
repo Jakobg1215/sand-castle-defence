@@ -1,0 +1,49 @@
+{
+  "RootObject": {
+    "__guid": "880ab70c-a858-4766-8fc8-9616a124ba0e",
+    "Name": "sandcastle",
+    "Tags": "castletarget,tower",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "Castle",
+        "__guid": "655bda90-209d-411c-ada1-fb5747c125d7",
+        "PayoutAmount": 10,
+        "PayoutInterval": 15
+      },
+      {
+        "__type": "BoxCollider",
+        "__guid": "e810019c-a9d2-4ac5-a4a4-2773ed384276",
+        "Center": "0,0,12",
+        "IsTrigger": true,
+        "Scale": "24,24,24",
+        "Static": true
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "75817d61-a6cf-450a-aa88-01771c16740b",
+        "Name": "Castle Model",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "31da3ae6-27df-4e45-afe7-10ea6eb2463f",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/towers/sandcastle.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

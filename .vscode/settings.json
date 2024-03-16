@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+        "code/bin": true,
+        "code/obj": true,
+        "code/Properties": true,
+        "code/*.csproj": true,
+        "modelsrc": true,
+        "*.sln": false,
+        "**/*.*_c": true
+    }
+}

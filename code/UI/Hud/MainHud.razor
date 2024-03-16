@@ -1,0 +1,41 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using TowerDefense.Management;
+@inherits PanelComponent
+
+<root>
+    @if (!ShowInfo) {
+        <div class="info">
+            Current Funding:
+            <span class="funding">
+                @CurrentFunding
+            </span>
+        </div>
+    }
+
+    @if (ShowInfo) {
+        <h1>
+            Place a casle to start the game.
+        </h1>
+    }
+</root>
+
+@code {
+    private EconomyManager Economy;
+    private TowerManager Towers;
+    private ulong CurrentFunding;
+    private bool ShowInfo = true;
+
+    protected override void OnAwake() {
+        Economy = Scene.Components.GetInDescendants<EconomyManager>();
+        Towers = Scene.Components.GetInDescendants<TowerManager>();
+    }
+
+    protected override void OnFixedUpdate() {
+        CurrentFunding = Economy.GetOrCreateAccount(Network.OwnerConnection.SteamId);
+
+        ShowInfo = Towers.CanPlaceCastle;
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(CurrentFunding, ShowInfo);
+}

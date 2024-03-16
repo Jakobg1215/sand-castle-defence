@@ -1,0 +1,32 @@
+MainHud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 20px;
+
+    h1 {
+        font-size: 25px;
+        font-family: Poppins;
+        color: #fff;
+    }
+
+    .info {
+        background-color: white;
+        border-radius: 5%;
+        margin-right: auto;
+        margin-bottom: auto;
+        width: 20%;
+        height: 5%;
+        padding: auto;
+        text-align: center;
+    }
+
+    .funding {
+        font-size: 15%;
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "Title": "Sand Castle Defence",
+  "Type": "game",
+  "Org": "pigeons",
+  "Ident": "sand_castle_defence",
+  "Tags": null,
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "Resources": "/UI/*",
+  "HasCode": true,
+  "CodePath": "/code/",
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Metadata": {
+    "MaxPlayers": 10,
+    "MinPlayers": 1,
+    "TickRate": 50,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Unrestricted",
+    "MapList": [
+      "facepunch.flatgrass"
+    ],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "CsProjName": "sand_castle_defence",
+    "ProjectTemplate": null,
+    "Compiler": {
+      "RootNamespace": "TowerDefense",
+      "DefineConstants": "",
+      "NoWarn": "1591;0649",
+      "WarningsAsErrors": "",
+      "AssemblyReferences": [],
+      "IgnoreFolders": [
+        "editor",
+        "unittest"
+      ],
+      "DistinctAssemblyReferences": []
+    },
+    "StartupScene": "scenes/setup.scene",
+    "MapStartupScene": null,
+    "LaunchMode": "Normal",
+    "ControlModes": {}
+  }
+}

@@ -1,0 +1,57 @@
+MainMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    pointer-events: all;
+    justify-content: center;
+
+    .menu-buttons {
+        width: auto;
+        flex-direction: column;
+        border: 1% solid white;
+        border-radius: 5%;
+    }
+
+    .menu-button {
+        margin: 1vw;
+        padding: 2%;
+        border-width: 2.5%;
+        border-radius: 2.5%;
+        color: black;
+        font-family: sans-serif;
+        font-size: 5vw;
+        text-align: center;
+    }
+
+    .menu-button:hover {
+        background-color: white;
+    }
+
+    .back-button {
+        width: 5%;
+        height: 100%;
+        background-color: darkgrey;
+        margin-right: auto;
+        color: black;
+        text-align: center;
+    }
+
+    .back-button:hover {
+        background-color: white;
+    }
+
+    .lobbies {
+        margin-right: auto;
+    }
+
+    .info {
+        margin-right: auto;
+        flex-direction: column;
+        font-size: 20%;
+    }
+}

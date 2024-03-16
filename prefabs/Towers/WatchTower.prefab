@@ -1,0 +1,57 @@
+{
+  "RootObject": {
+    "__guid": "99ce99b3-4ffd-4187-af1d-82d3a7fae4a0",
+    "Name": "watchtower",
+    "Tags": "tower",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "WatchTower",
+        "__guid": "8ccc0999-1e8e-4a90-8d6a-e0997a4d2fec",
+        "Damage": 2,
+        "FireRate": 2,
+        "MaxHealth": 10,
+        "RangeCollider": {
+          "_type": "component",
+          "component_id": "783e1e43-e6fe-4ab0-9ebd-13c2cfd00001",
+          "go": "99ce99b3-4ffd-4187-af1d-82d3a7fae4a0",
+          "component_type": "SphereCollider"
+        }
+      },
+      {
+        "__type": "SphereCollider",
+        "__guid": "783e1e43-e6fe-4ab0-9ebd-13c2cfd00001",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Radius": 50,
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "bc081226-469e-4564-8284-1b00827c993e",
+        "Name": "Watch Tower Model",
+        "Scale": "0.25,0.26,0.25",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "66290fe4-1faf-46ce-ae8e-cf5babedfd0a",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/towers/sandcastle.vmdl",
+            "RenderType": "On",
+            "Tint": "0.14419,0.08316,0.08316,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

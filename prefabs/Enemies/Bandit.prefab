@@ -1,0 +1,151 @@
+{
+  "RootObject": {
+    "__guid": "8fbbbcc9-c830-4048-a9dd-6a57174bb9c4",
+    "Name": "bandit",
+    "Tags": "enemy",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "Bandit",
+        "__guid": "9c4af530-d68b-4e5b-b3d9-079205ea4615",
+        "Agent": {
+          "_type": "component",
+          "component_id": "b4e216a8-464e-4dfd-ac37-51fc0ba43126",
+          "go": "8fbbbcc9-c830-4048-a9dd-6a57174bb9c4",
+          "component_type": "NavMeshAgent"
+        },
+        "AnimationHelper": {
+          "_type": "component",
+          "component_id": "4a1bc722-c966-41e3-9130-049b2cb23479",
+          "go": "93c672a3-0a02-4f0f-ad91-d4be94fa29bb",
+          "component_type": "CitizenAnimationHelper"
+        },
+        "DifficultyReward": 5,
+        "KillReward": 5,
+        "MaxHealth": 6,
+        "StealAmount": 1005,
+        "WorldPanel": {
+          "_type": "component",
+          "component_id": "b9f51a08-2fc8-4e05-8d68-6ba5d9c0a200",
+          "go": "44b9d715-bd3d-41af-b5d2-8e13f754e0f3",
+          "component_type": "WorldPanel"
+        }
+      },
+      {
+        "__type": "NavMeshAgent",
+        "__guid": "b4e216a8-464e-4dfd-ac37-51fc0ba43126",
+        "Acceleration": 5,
+        "Height": 8,
+        "MaxSpeed": 10,
+        "Radius": 2,
+        "Separation": 0,
+        "UpdatePosition": true,
+        "UpdateRotation": true
+      },
+      {
+        "__type": "BoxCollider",
+        "__guid": "71d6237a-d0ab-482b-8e2c-3d61eeadac8f",
+        "Center": "0,0,3.5",
+        "IsTrigger": true,
+        "Scale": "2,2,7",
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "93c672a3-0a02-4f0f-ad91-d4be94fa29bb",
+        "Name": "Bandit Model",
+        "Scale": "0.1,0.1,0.1",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "SkinnedModelRenderer",
+            "__guid": "e118784a-9b75-43d8-8bfe-df88668d1ce2",
+            "BodyGroups": 341,
+            "CreateBoneObjects": false,
+            "Model": "models/citizen/citizen.vmdl",
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "CitizenAnimationHelper",
+            "__guid": "4a1bc722-c966-41e3-9130-049b2cb23479",
+            "BodyWeight": 1,
+            "EyesWeight": 1,
+            "HeadWeight": 1,
+            "Height": 1,
+            "LookAtEnabled": false,
+            "Target": {
+              "_type": "component",
+              "component_id": "e118784a-9b75-43d8-8bfe-df88668d1ce2",
+              "go": "93c672a3-0a02-4f0f-ad91-d4be94fa29bb",
+              "component_type": "SkinnedModelRenderer"
+            }
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "d44cbc36-156c-493c-8e69-a323d46a4ae3",
+            "Name": "The Hat",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "SkinnedModelRenderer",
+                "__guid": "c654d087-07d5-4508-8f2c-cae8b62ae47d",
+                "BodyGroups": 18446744073709551615,
+                "BoneMergeTarget": {
+                  "_type": "component",
+                  "component_id": "e118784a-9b75-43d8-8bfe-df88668d1ce2",
+                  "go": "93c672a3-0a02-4f0f-ad91-d4be94fa29bb",
+                  "component_type": "SkinnedModelRenderer"
+                },
+                "CreateBoneObjects": false,
+                "Model": "models/citizen_clothes/hat/beanie/models/beanie.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "44b9d715-bd3d-41af-b5d2-8e13f754e0f3",
+        "Name": "Heath Panel",
+        "Position": "0,0,8.5",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "WorldPanel",
+            "__guid": "b9f51a08-2fc8-4e05-8d68-6ba5d9c0a200",
+            "__enabled": false,
+            "HorizontalAlign": "Center",
+            "LookAtCamera": true,
+            "PanelSize": "128,32",
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "HealthBar",
+            "__guid": "587c24b7-a376-4298-955a-faebe4da2568",
+            "CurrentEnemy": {
+              "_type": "component",
+              "component_id": "9c4af530-d68b-4e5b-b3d9-079205ea4615",
+              "go": "8fbbbcc9-c830-4048-a9dd-6a57174bb9c4",
+              "component_type": "Bandit"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

@@ -1,0 +1,210 @@
+{
+  "__guid": "5b6ba9e4-8bcb-4b0d-ae8e-791018068ad1",
+  "GameObjects": [
+    {
+      "__guid": "b01b57b5-fd04-4871-b35f-76ca31185bca",
+      "Name": "Map",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "MapInstance",
+          "__guid": "feba5e31-e827-43b5-a542-4ccdd32e3d0c",
+          "MapName": "",
+          "UseMapFromLaunch": true
+        }
+      ]
+    },
+    {
+      "__guid": "e9fa0253-05fa-4042-a376-745caa5a629d",
+      "Name": "Management",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Children": [
+        {
+          "__guid": "8a2be761-fb7e-4142-bba1-1be322ad028d",
+          "Name": "Difficulty",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "DifficultyManager",
+              "__guid": "505b26d8-45d5-40dd-bcaa-727a26dc854a",
+              "BaseWaveSpawnTime": 5,
+              "CastleDifficultyScale": 1000,
+              "HealthBonusScale": 75,
+              "MaxCastle": 10,
+              "MaxWaveSize": 10,
+              "MinimumWaveSpawnTime": 1,
+              "Networking": {
+                "_type": "component",
+                "component_id": "302c8e49-56e7-4a20-94c4-37661d9eb875",
+                "go": "545cd444-d59b-4341-8c62-06d48d8d2688",
+                "component_type": "NetworkManager"
+              },
+              "WaveDifficultyScale": 150,
+              "WaveSpawnTimeDecrease": 0.1,
+              "WaveSpawnTimeDifficultyScale": 250
+            }
+          ]
+        },
+        {
+          "__guid": "51fb3053-e581-489e-b28d-c372880d226a",
+          "Name": "Economy",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "EconomyManager",
+              "__guid": "d5d7a832-d536-4769-9756-474dce1e246a",
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "505b26d8-45d5-40dd-bcaa-727a26dc854a",
+                "go": "8a2be761-fb7e-4142-bba1-1be322ad028d",
+                "component_type": "DifficultyManager"
+              },
+              "Enemies": {
+                "_type": "component",
+                "component_id": "6f0774e8-3c40-4a16-a58b-4c332ec9aa10",
+                "go": "335fc6f2-1920-42e7-ba51-3a0e6eab3568",
+                "component_type": "EnemyManager"
+              },
+              "Networking": {
+                "_type": "component",
+                "component_id": "302c8e49-56e7-4a20-94c4-37661d9eb875",
+                "go": "545cd444-d59b-4341-8c62-06d48d8d2688",
+                "component_type": "NetworkManager"
+              },
+              "StartingFunds": 100,
+              "Towers": {
+                "_type": "component",
+                "component_id": "2d3df0e2-00a7-4e62-b184-77040199cf71",
+                "go": "6f6b27b9-a8f2-4e53-b9b0-d0b8d23e9f59",
+                "component_type": "TowerManager"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "335fc6f2-1920-42e7-ba51-3a0e6eab3568",
+          "Name": "Enemies",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "EnemyManager",
+              "__guid": "6f0774e8-3c40-4a16-a58b-4c332ec9aa10",
+              "BanditPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/enemies/bandit.prefab"
+              },
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "505b26d8-45d5-40dd-bcaa-727a26dc854a",
+                "go": "8a2be761-fb7e-4142-bba1-1be322ad028d",
+                "component_type": "DifficultyManager"
+              },
+              "Towers": {
+                "_type": "component",
+                "component_id": "2d3df0e2-00a7-4e62-b184-77040199cf71",
+                "go": "6f6b27b9-a8f2-4e53-b9b0-d0b8d23e9f59",
+                "component_type": "TowerManager"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "545cd444-d59b-4341-8c62-06d48d8d2688",
+          "Name": "Networking",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "NetworkManager",
+              "__guid": "302c8e49-56e7-4a20-94c4-37661d9eb875",
+              "PlayerPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/player.prefab"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "6f6b27b9-a8f2-4e53-b9b0-d0b8d23e9f59",
+          "Name": "Towers",
+          "Enabled": true,
+          "NetworkMode": 1,
+          "Components": [
+            {
+              "__type": "TowerManager",
+              "__guid": "2d3df0e2-00a7-4e62-b184-77040199cf71",
+              "CastlePrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/sandcastle.prefab"
+              },
+              "CastleStorage": {
+                "_type": "gameobject",
+                "go": "c212e8de-47e9-47cf-9893-514003fef7a9"
+              },
+              "Difficulty": {
+                "_type": "component",
+                "component_id": "505b26d8-45d5-40dd-bcaa-727a26dc854a",
+                "go": "8a2be761-fb7e-4142-bba1-1be322ad028d",
+                "component_type": "DifficultyManager"
+              },
+              "Economy": {
+                "_type": "component",
+                "component_id": "d5d7a832-d536-4769-9756-474dce1e246a",
+                "go": "51fb3053-e581-489e-b28d-c372880d226a",
+                "component_type": "EconomyManager"
+              },
+              "HubPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/hub.prefab"
+              },
+              "WatchTowerPrefab": {
+                "_type": "gameobject",
+                "prefab": "prefabs/towers/watchtower.prefab"
+              }
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "c212e8de-47e9-47cf-9893-514003fef7a9",
+              "Name": "castles",
+              "Enabled": true,
+              "NetworkMode": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "gaming",
+  "Description": "",
+  "LastSaved": "2024-03-15T20:00:05.5393994-05:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

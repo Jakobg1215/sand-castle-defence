@@ -1,0 +1,106 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Network;
+@using Sandbox.Diagnostics;
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@using System.Linq;
+@inherits PanelComponent
+
+<root>
+    @if (!ShowMaps && !ShowLobbies && !ShowInfo) {
+        <div class="menu-buttons">
+            <button class="menu-button" OnClick=@ToggleMaps>Play Game</button>
+            <button class="menu-button" OnClick=@ToggleLobbies>Join Game</button>
+            <button class="menu-button" OnClick=@ToggleInfo>Game Info</button>
+            <button class="menu-button" OnClick=@QuitGame>Quit Game</button>
+        </div>
+    }
+
+    @if (ShowMaps) {
+        <button class="back-button" OnClick=@ToggleMaps>Back</button>
+        <PackageList ShowFilters="@true" Query="type:map sort:trending" OnSelected=@StartGame></PackageList>
+    }
+
+    @if (ShowLobbies) {
+        <button class="back-button" OnClick=@ToggleLobbies>Back</button>
+        <div class="lobbies">
+            @if (IsRefreshing)
+            {
+                <div>Refreshing please wait...</div>
+            }
+            else if (Lobbies.Count == 0)
+            {
+                <div>No lobbies were found</div>
+            }
+            else
+            {
+                @foreach (var Lobby in Lobbies)
+                {
+                    <div>
+                        <div class="title">@Lobby.Name</div>
+                        <div class="map">@Lobby.Map</div>
+                        <div class="count">@Lobby.Members / @Lobby.MaxMembers</div>
+                        <button class="lobby-button" Onclick=@(() => JoinLobby(Lobby))>Join Game</button>
+                    </div>
+                }
+            }
+        </div>
+    }
+
+    @if (ShowInfo) {
+        <button class="back-button" OnClick=@ToggleInfo>Back</button>
+        <div class="info">
+            <p>Game made by Jakobg1215</p>
+            <p>1: To select castle to place</p>
+            <p>2: To select watch tower to place</p>
+            <p>Left Click: To place tower</p>
+            <p>Right Click: To cancel placement tower</p>
+        </div>
+    }
+</root>
+
+@code {
+    [Property] private readonly SceneFile GameScene;
+    private bool ShowMaps = false;
+    private bool ShowLobbies = false;
+    private bool ShowInfo = false;
+    private bool IsRefreshing = false;
+    private List<LobbyInformation> Lobbies { get; set; } = new();
+
+    private void StartGame(Package Package) {
+        LaunchArguments.Map = Package.FullIdent;
+        Game.ActiveScene.Load(GameScene);
+    }
+
+    private void ToggleMaps() {
+        ShowMaps = !ShowMaps;
+    }
+
+    private void ToggleLobbies() {
+        LoadLobbies();
+        ShowLobbies = !ShowLobbies;
+    }
+
+    private void ToggleInfo() {
+        ShowInfo = !ShowInfo;
+    }
+
+    private void QuitGame() {
+        Game.Close();
+    }
+
+    private async void LoadLobbies() {
+        IsRefreshing = true;
+        Lobbies = await Networking.QueryLobbies();
+        IsRefreshing = false;
+    }
+
+    private void JoinLobby(LobbyInformation Lobby) {
+        GameNetworkSystem.Connect(Lobby.LobbyId);
+        @* LaunchArguments.Map = Lobby.Map;
+        Game.ActiveScene.Load(GameScene); *@
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(ShowMaps, ShowLobbies, ShowInfo);
+}

@@ -1,0 +1,36 @@
+{
+  "RootObject": {
+    "Id": "7af532c8-6d04-4d00-ab04-3f0248f9c27a",
+    "Name": "hub",
+    "Tags": "tower",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Hub"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "4d591e68-4fff-4f9a-8668-54b65c59a66a",
+        "Name": "Hub Model",
+        "Scale": "0.25,0.25,0.25",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/towers/sandcastle.vmdl",
+            "RenderType": "On",
+            "Tint": "1,0,0,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

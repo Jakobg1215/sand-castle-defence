@@ -1,0 +1,21 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using TowerDefense.Enemies;
+@inherits PanelComponent
+
+<root>
+    <div class="heath-bar" style="width: @CurrentHealthPercentage%">@CurrentHealth</div>
+</root>
+
+@code {
+    [Property] private readonly Enemy CurrentEnemy;
+    private uint CurrentHealth;
+    private float CurrentHealthPercentage;
+
+    protected override void OnFixedUpdate() {
+        CurrentHealth = CurrentEnemy.Health;
+        CurrentHealthPercentage = ((float)CurrentHealth / CurrentEnemy.MaxHealth) * 100;
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(CurrentHealth);
+}
